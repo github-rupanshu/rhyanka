@@ -193,7 +193,7 @@ body{background:var(--cream);color:var(--text);font-family:'Cormorant Garamond',
 .venue-card::before,.venue-card::after{content:'✦';position:absolute;color:var(--gold);font-size:14px;}
 .venue-card::before{top:18px;left:18px;}
 .venue-card::after{bottom:18px;right:18px;}
-.venue-name{font-family:'Great Vibes',cursive;font-size:46px;color:var(--burg);margin-bottom:12px;}
+.venue-name{font-family:'Cinzel',serif;font-size:22px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--burg);margin-bottom:12px;}
 .venue-address{font-size:14px;line-height:1.9;color:var(--text);opacity:.65;margin-bottom:32px;letter-spacing:.5px;}
 .maps-btn{display:inline-flex;align-items:center;gap:10px;background:var(--burg);color:var(--cream);padding:14px 30px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:background .3s,transform .2s;}
 .maps-btn:hover{background:var(--burg-l);transform:translateY(-2px);}
@@ -210,10 +210,7 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
 .petal{position:fixed;border-radius:50% 0 50% 0;pointer-events:none;z-index:0;animation:fall linear infinite;}
 @keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:0}10%{opacity:1}90%{opacity:.6}100%{transform:translateY(100vh) rotate(360deg);opacity:0}}
 
-/* ══ MUSIC BTN ══ */
-#music-btn{position:fixed;bottom:24px;right:24px;z-index:200;width:46px;height:46px;border-radius:50%;background:var(--burg);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:transform .3s,background .3s;opacity:0;}
-#music-btn.show{opacity:1;transition:opacity .5s;}
-#music-btn:hover{transform:scale(1.1);}
+
 
 /* ══ RESPONSIVE ══ */
 @media(max-width:768px){
@@ -249,8 +246,7 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
 })();
 </script>
 
-<!-- MUSIC -->
-<button id="music-btn" title="Toggle Music" onclick="toggleMusic()">♪</button>
+
 
 <!-- GATE -->
 <div id="gate" onclick="openGate()">
@@ -374,7 +370,7 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
     </div>
     <div class="timeline-item">
       <div class="ti-time">5 July · Evening</div><div class="ti-dot"></div>
-      <div class="ti-content"><div class="event-label">Engagement</div><div class="event-sub">Kamal Mahal</div></div>
+      <div class="ti-content"><div class="event-label">Tikka</div><div class="event-sub">Kamal Mahal</div></div>
     </div>
     <div class="timeline-item">
       <div class="ti-content"><div class="event-label">Haldi Ceremony</div><div class="event-sub">Aravali</div></div>
@@ -432,7 +428,6 @@ footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(
 /* ── Gate ── */
 function openGate(){
   document.getElementById('gate').classList.add('hidden');
-  document.getElementById('music-btn').classList.add('show');
 }
 
 /* ── Envelope ── */
@@ -443,14 +438,7 @@ function openEnvelope(){
   document.getElementById('env-hint').style.opacity='0';
 }
 
-/* ── Music ── */
-let musicOn=false;
-function toggleMusic(){
-  const btn=document.getElementById('music-btn');
-  musicOn=!musicOn;
-  btn.textContent=musicOn?'♫':'♪';
-  btn.style.background=musicOn?'var(--burg-l)':'var(--burg)';
-}
+
 
 /* ── Scroll Reveal ── */
 const observer=new IntersectionObserver(entries=>{
