@@ -436,6 +436,9 @@ function openEnvelope(){
   if(env.classList.contains('opened'))return;
   env.classList.add('opened');
   document.getElementById('env-hint').style.opacity='0';
+  setTimeout(()=>{
+    document.getElementById('countdown').scrollIntoView({behavior:'smooth'});
+  }, 2000);
 }
 
 
